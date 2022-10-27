@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#Dialog{
+background-color: rgb(232, 232, 232);
+}</string>
+  </property>
+  <widget class="QFrame" name="circularProgressBar_Main">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>69</y>
+     <width>200</width>
+     <height>410</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#circularProgressBar_Main{
+
+}
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QFrame" name="circularProgressSuc">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>140</width>
+      <height>140</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame{
+	border-radius: 70px;	
+	background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:0.400 rgb(255, 128, 0), stop:0.397 rgba(204, 204, 204, 100));	
+	border:1px solid rgba(0, 0, 0, 20);
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QFrame" name="circularBg">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>140</width>
+      <height>140</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame{
+	border-radius: 110px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QFrame" name="circularContainerSuc">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>120</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="baseSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame{
+	border-radius: 60px;	
+	background-color: rgb(255, 255, 255);
+}
+
+#circularContainer{
+	border: 1px solid rgba(0, 0, 0, 30);
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="labelPercentageSuc">
+      <property name="geometry">
+       <rect>
+        <x>22</x>
+        <y>27</y>
+        <width>91</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>나눔스퀘어OTF Bold</family>
+        <pointsize>9</pointsize>
+        <weight>9</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 128, 0); padding: 0px; background-color: none;
+font: 75 9pt &quot;나눔스퀘어OTF Bold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;60&lt;/span&gt;&lt;span style=&quot; font-size:20pt; vertical-align:super;&quot;&gt;%&lt;/span&gt;&lt;/p&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="indent">
+       <number>-1</number>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="Success">
+    <property name="geometry">
+     <rect>
+      <x>33</x>
+      <y>170</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 81 15pt &quot;나눔스퀘어OTF ExtraBold&quot;;
+color: rgba(0, 0, 0, 170);</string>
+    </property>
+    <property name="text">
+     <string>성공</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QFrame" name="circularProgressFail">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>210</y>
+      <width>140</width>
+      <height>140</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame{
+	border-radius: 70px;	
+	background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:0.800 rgba(204, 204, 204, 100), stop:0.797 rgb(85, 170, 255));
+	border:1px solid rgba(0, 0, 0, 20);
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QFrame" name="circularBg_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>210</y>
+      <width>140</width>
+      <height>140</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame{
+	border-radius: 110px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QFrame" name="circularContainerFail">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>120</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="baseSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame{
+	border-radius: 60px;	
+	background-color: rgb(255, 255, 255);
+}
+
+#circularContainer_2{
+	border:1px solid rgba(0, 0, 0, 30);
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="labelPercentageFail">
+      <property name="geometry">
+       <rect>
+        <x>22</x>
+        <y>27</y>
+        <width>91</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>나눔스퀘어OTF Bold</family>
+        <pointsize>9</pointsize>
+        <weight>9</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(83, 165, 248); padding: 0px; background-color: none;
+font: 75 9pt &quot;나눔스퀘어OTF Bold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;80&lt;/span&gt;&lt;span style=&quot; font-size:20pt; vertical-align:super;&quot;&gt;%&lt;/span&gt;&lt;/p&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="indent">
+       <number>-1</number>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="Fail">
+    <property name="geometry">
+     <rect>
+      <x>33</x>
+      <y>360</y>
+      <width>141</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 81 15pt &quot;나눔스퀘어OTF ExtraBold&quot;;
+color: rgba(0, 0, 0, 170);</string>
+    </property>
+    <property name="text">
+     <string>실패</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>69</y>
+     <width>600</width>
+     <height>410</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="Avg_num">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>350</y>
+      <width>130</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgba(0, 0, 0, 170);font: 81 14pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;1820 &lt;span style=&quot; font-size:11pt;&quot;&gt;(kcal)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Avg">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>350</y>
+      <width>60</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgba(0, 0, 0, 170);font: 81 14pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+    </property>
+    <property name="text">
+     <string>평균:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Max_num">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>350</y>
+      <width>130</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgba(0, 0, 0, 170);font: 81 14pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;3000 &lt;span style=&quot; font-size:11pt;&quot;&gt;(kcal)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Max">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>350</y>
+      <width>60</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgba(0, 0, 0, 170);font: 81 14pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+    </property>
+    <property name="text">
+     <string>최대:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Min_num">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>350</y>
+      <width>130</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgba(0, 0, 0, 170);font: 81 14pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;1000 &lt;span style=&quot; font-size:11pt;&quot;&gt;(kcal)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Min">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>350</y>
+      <width>60</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgba(0, 0, 0, 170);font: 81 14pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+    </property>
+    <property name="text">
+     <string>최소:</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>561</width>
+      <height>321</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="graph_verticalLayout"/>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="back">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>60</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 170, 0);
+font: 81 16pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+   </property>
+   <property name="text">
+    <string>뒤</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="title">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>10</y>
+     <width>680</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 81 24pt &quot;나눔스퀘어OTF ExtraBold&quot;;
+border: 2px solid rgb(255, 170, 0);
+background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>대시보드</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <zorder>frame</zorder>
+  <zorder>circularProgressBar_Main</zorder>
+  <zorder>back</zorder>
+  <zorder>title</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
