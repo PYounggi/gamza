@@ -1,13 +1,13 @@
 import sys
+
+from PyQt5.QtMultimedia import QCamera
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5 import QtWidgets
 
-import matplotlib as mpl
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 
 import base64
@@ -20,6 +20,7 @@ import numpy as np
 from datetime import datetime, date
 import pandas
 from dateutil.relativedelta import relativedelta
+
 
 class SplashScreen(QDialog):
     def __init__(self):
@@ -34,13 +35,14 @@ class SplashScreen(QDialog):
         widget.removeWidget(splash)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
+
 class MainScreen(QDialog):
     def __init__(self):
         super(MainScreen, self).__init__()
         loadUi("main.ui",self)
 
         #사물 인식
-        self.recognize.clicked.connect(self.kal)
+        self.recognize.clicked.connect(self.goRecognize)
         #그래프
         self.graph.clicked.connect(self.goGraph)
         #기록
@@ -49,7 +51,8 @@ class MainScreen(QDialog):
         self.shutdown.clicked.connect(self.Shutdown)
 
     def goRecognize(self):
-        print("food recognize start!")
+        widget.addWidget(cam)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
 
     def goGraph(self):
         widget.addWidget(grap)
@@ -79,6 +82,15 @@ class MainScreen(QDialog):
         header = {"Content-Type":"application/json; charset=utf-8"}
         res = requests.post('http://35.153.89.64:3030/api/recode/1', data=data, headers=header).content
         print(res)
+
+class CameraScreen(QDialog):
+    def __init__(self):
+        super(CameraScreen, self).__init__()
+        loadUi("camera.ui", self)
+
+        self.qcamera = QCamera()
+        self.qcamera.setViewfinder(self.viewfinder)
+        self.qcamera.start()
 
 class GraphScreen(QDialog):
     def __init__(self):
@@ -208,6 +220,7 @@ if __name__ == "__main__" :
 
     splash = SplashScreen()
     main = MainScreen()
+    cam = CameraScreen()
     grap = GraphScreen()
     record = RecordScreen()
 
