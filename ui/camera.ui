@@ -161,12 +161,12 @@ font: 81 12pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 81 44pt &quot;나눔스퀘어OTF ExtraBold&quot;;
+    <string notr="true">font: 81 36pt &quot;나눔스퀘어OTF ExtraBold&quot;;
 border: 2px solid rgb(255, 170, 0);
 background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>시작을 눌러주세요</string>
+    <string>시작을 눌러 확인하세요</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -190,11 +190,14 @@ background-color: rgb(255, 255, 255);</string>
      <bold>false</bold>
     </font>
    </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::NoContextMenu</enum>
+   </property>
    <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string/>
    </property>
    <property name="whatsThis">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string/>
    </property>
    <property name="layoutDirection">
     <enum>Qt::LeftToRight</enum>

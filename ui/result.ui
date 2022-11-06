@@ -54,7 +54,7 @@ background-color: rgb(255, 255, 255);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="back">
+  <widget class="QPushButton" name="restart">
    <property name="geometry">
     <rect>
      <x>710</x>
@@ -250,7 +250,7 @@ color: rgb(238, 159, 0);</string>
     </property>
    </widget>
   </widget>
-  <widget class="QPushButton" name="back_2">
+  <widget class="QPushButton" name="end">
    <property name="geometry">
     <rect>
      <x>620</x>
@@ -268,10 +268,10 @@ font: 81 16pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
    </property>
   </widget>
   <zorder>title</zorder>
-  <zorder>back_2</zorder>
+  <zorder>end</zorder>
   <zorder>info</zorder>
   <zorder>img</zorder>
-  <zorder>back</zorder>
+  <zorder>restart</zorder>
  </widget>
  <resources/>
  <connections/>

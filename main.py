@@ -1,6 +1,5 @@
 import sys
 
-from PyQt5.QtMultimedia import QCamera
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
@@ -17,7 +16,6 @@ from PIL import Image
 import requests
 import json
 import numpy as np
-
 from datetime import datetime, date
 import pandas
 from dateutil.relativedelta import relativedelta
@@ -28,21 +26,21 @@ import preview
 class SplashScreen(QDialog):
     def __init__(self):
         super(SplashScreen, self).__init__()
-        loadUi("splash.ui", self)
+        loadUi("ui/splash.ui", self)
         self.image.setPixmap(QPixmap('image/CC.jpg'))
         spl_img = self.image
         clickable(spl_img).connect(self.gotomain)
 
     def gotomain(self):
-        widget.addWidget(main)
         widget.removeWidget(splash)
-        widget.setCurrentIndex(widget.currentIndex()+1)
+        widget.addWidget(main)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
 
 
 class MainScreen(QDialog):
     def __init__(self):
         super(MainScreen, self).__init__()
-        loadUi("main.ui", self)
+        loadUi("ui/main.ui", self)
 
         #사물 인식
         self.recognize.clicked.connect(self.goCam)
@@ -55,23 +53,25 @@ class MainScreen(QDialog):
 
     def goCam(self):
         widget.addWidget(cam)
-        widget.setCurrentIndex(widget.currentIndex()+1)
-
-    def goGraph(self):
-        widget.addWidget(grap)
-        widget.setCurrentIndex(widget.currentIndex()+1)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
 
     def goRecord(self):
         widget.addWidget(record)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
+    def goGraph(self):
+        widget.setCurrentIndex(grap)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
     def Shutdown(self):
         widget.deleteLater()
+
 
 class CameraScreen(QDialog):
     def __init__(self):
         super(CameraScreen, self).__init__()
-        loadUi("camera.ui", self)
+        loadUi("ui/camera.ui", self)
+
         self.start.clicked.connect(self.camstart)
         self.stop.clicked.connect(self.camstop)
         self.back.clicked.connect(self.goBack)
@@ -86,11 +86,14 @@ class CameraScreen(QDialog):
     def camstop(self):
         if preview.running == True:
             preview.running = False
-            self.preview.removeWidget(self.display)
+            self.display.close()
 
     def goResult(self):
-        widget.addWidget(result)
-        widget.setCurrentIndex(widget.currentIndex()+1)
+        if preview.running == True:
+            preview.running = False
+            self.display.close()
+        widget.addWidget(rslt)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
 
     def goBack(self):
         if preview.running == True:
@@ -98,15 +101,27 @@ class CameraScreen(QDialog):
             self.display.close()
         widget.removeWidget(cam)
 
+
 class ResultScreen(QDialog):
-    def __int__(self):
-        super(ResultScreen, self).__int__()
-        loadUi('result.ui', self)
+    def __init__(self):
+        super(ResultScreen, self).__init__()
+        loadUi("ui/result.ui", self)
+
+        self.end.clicked.connect(self.goBack)
+        self.restart.clicked.connect(self.reCam)
+
+    def goBack(self):
+        widget.removeWidget(cam)
+        widget.removeWidget(rslt)
+
+    def reCam(self):
+        widget.removeWidget(rslt)
+
 
 class GraphScreen(QDialog):
     def __init__(self):
         super(GraphScreen, self).__init__()
-        loadUi('graph.ui', self)
+        loadUi('ui/graph.ui', self)
 
         # 현재 날짜와 시간 저장
         my_date = datetime.today()
@@ -141,9 +156,9 @@ class GraphScreen(QDialog):
         axes.set_title("7days kcal")
         self.canvas.draw()
 
-        self.Avg_num.setText(str(int(avg_kcal)))
-        self.Max_num.setText(str(int(max_kcal)))
-        self.Min_num.setText(str(int(min_kcal)))
+        self.Avg_num.setText(str(int(avg_kcal)) + " (kcal)")
+        self.Max_num.setText(str(int(max_kcal)) + " (kcal)")
+        self.Min_num.setText(str(int(min_kcal)) + " (kcal)")
 
         #뒤로가기
         self.back.clicked.connect(self.goBack)
@@ -158,10 +173,11 @@ class GraphScreen(QDialog):
     def goBack(self):
         widget.removeWidget(grap)
 
+
 class RecordScreen(QDialog):
     def __init__(self):
         super(RecordScreen, self).__init__()
-        loadUi("record.ui", self)
+        loadUi("ui/record.ui", self)
 
         #캘린더
         #자동으로 오늘 날짜 선택
@@ -208,10 +224,6 @@ class RecordScreen(QDialog):
     def goBack(self):
         widget.removeWidget(record)
 
-class subWidet(QWidget):
-    def __init__(self):
-        super(subWidet, self).__init__()
-        loadUi('cover.ui', self)
 
 def clickable(widget):
     class Filter(QObject):
@@ -228,14 +240,15 @@ def clickable(widget):
     widget.installEventFilter(filter)
     return filter.clicked
 
+
 if __name__ == "__main__" :
     app = QApplication(sys.argv)
 
     splash = SplashScreen()
+
     main = MainScreen()
-    cam = \
-        CameraScreen()
-    result = ResultScreen()
+    cam = CameraScreen()
+    rslt = ResultScreen()
     grap = GraphScreen()
     record = RecordScreen()
 
