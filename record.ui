@@ -24,8 +24,8 @@ background-color: rgb(232, 232, 232);
   <widget class="QPushButton" name="back">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
+     <x>10</x>
+     <y>10</y>
      <width>60</width>
      <height>60</height>
     </rect>
@@ -41,9 +41,9 @@ font: 81 16pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
   <widget class="QLabel" name="title">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>20</y>
-     <width>680</width>
+     <x>80</x>
+     <y>10</y>
+     <width>710</width>
      <height>60</height>
     </rect>
    </property>
@@ -62,10 +62,10 @@ background-color: rgb(255, 255, 255);</string>
   <widget class="QCalendarWidget" name="calendar">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>100</y>
-     <width>370</width>
-     <height>360</height>
+     <x>10</x>
+     <y>80</y>
+     <width>380</width>
+     <height>390</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -76,14 +76,14 @@ background-color: rgb(255, 255, 255);</string>
 font: 81 12pt &quot;나눔스퀘어OTF ExtraBold&quot;;
 border: 2px solid rgb(255, 170, 0);
 color: rgb(0, 0, 0);
-background-color: rgb(239, 239, 239);
+background-color: rgb(255, 255, 255);
 selection-color: rgb(255, 255, 255);
-selection-background-color: rgba(255, 170, 0, 100);
+selection-background-color: rgba(255, 170, 0, 255);
 }
 
 #qt_calendar_navigationbar{
 background-color: rgba(255, 170, 0, 255);
-min-height: 45px;
+min-height: 50px;
 border: 2px solid rgb(255, 170, 0);
 border-bottom: 0px;
 }
@@ -125,32 +125,141 @@ border-bottom: 0px;
   <widget class="QStackedWidget" name="stack">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>100</y>
-     <width>370</width>
-     <height>360</height>
+     <x>400</x>
+     <y>80</y>
+     <width>390</width>
+     <height>390</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="breakfast">
     <property name="styleSheet">
      <string notr="true">#breakfast{
 border: 2px solid rgb(255, 170, 0);
+	background-color: rgb(255, 255, 255);
 }</string>
     </property>
-    <widget class="QPushButton" name="pushButton1_1">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
+    <widget class="QWidget" name="info_1" native="true">
      <property name="geometry">
       <rect>
-       <x>15</x>
-       <y>20</y>
+       <x>10</x>
+       <y>340</y>
+       <width>370</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#info_1{
+border: 2px solid rgb(255, 170, 0);
+}</string>
+     </property>
+     <widget class="QLabel" name="bl_gram">
+      <property name="geometry">
+       <rect>
+        <x>265</x>
+        <y>5</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="bl_kname">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>5</y>
+        <width>60</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>칼로리 :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="bl_gname">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>5</y>
+        <width>40</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>무게 :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="bl_kcal">
+      <property name="geometry">
+       <rect>
+        <x>95</x>
+        <y>5</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="bl_kinfo">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>5</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(kcal)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="bl_ginfo">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>5</y>
+        <width>21</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(g)</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="pushButton1_1">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>15</y>
        <width>100</width>
        <height>45</height>
       </rect>
@@ -162,21 +271,6 @@ border: 2px solid rgb(255, 170, 0);
        <weight>75</weight>
        <bold>true</bold>
       </font>
-     </property>
-     <property name="tabletTracking">
-      <bool>false</bool>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::StrongFocus</enum>
-     </property>
-     <property name="contextMenuPolicy">
-      <enum>Qt::PreventContextMenu</enum>
-     </property>
-     <property name="acceptDrops">
-      <bool>false</bool>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 170, 0);</string>
@@ -187,15 +281,32 @@ border: 2px solid rgb(255, 170, 0);
      <property name="checkable">
       <bool>false</bool>
      </property>
-     <property name="checked">
-      <bool>false</bool>
+    </widget>
+    <widget class="QLabel" name="image">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>370</width>
+       <height>260</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 81 20pt &quot;나눔스퀘어OTF ExtraBold&quot;;
+border: 2px solid rgb(255, 170, 0);</string>
+     </property>
+     <property name="text">
+      <string>인식된 음식이 없습니다</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton1_2">
      <property name="geometry">
       <rect>
-       <x>135</x>
-       <y>20</y>
+       <x>145</x>
+       <y>15</y>
        <width>100</width>
        <height>45</height>
       </rect>
@@ -215,17 +326,14 @@ border: 2px solid rgb(255, 170, 0);
       <string>점심</string>
      </property>
      <property name="checkable">
-      <bool>false</bool>
-     </property>
-     <property name="checked">
       <bool>false</bool>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton1_3">
      <property name="geometry">
       <rect>
-       <x>255</x>
-       <y>20</y>
+       <x>280</x>
+       <y>15</y>
        <width>100</width>
        <height>45</height>
       </rect>
@@ -243,153 +351,6 @@ border: 2px solid rgb(255, 170, 0);
      </property>
      <property name="text">
       <string>저녁</string>
-     </property>
-     <property name="checkable">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="image">
-     <property name="geometry">
-      <rect>
-       <x>15</x>
-       <y>100</y>
-       <width>205</width>
-       <height>205</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 81 24pt &quot;나눔스퀘어OTF ExtraBold&quot;;
-border: 2px solid rgb(255, 170, 0);</string>
-     </property>
-     <property name="text">
-      <string>사진</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="kname">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>115</y>
-       <width>110</width>
-       <height>35</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;
-border:1px solid rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string>칼로리</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="gname">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>215</y>
-       <width>110</width>
-       <height>35</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;
-border:1px solid rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string>무게</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="kcal">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>150</y>
-       <width>110</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border:1px solid rgb(255, 255, 255);
-font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
-     </property>
-     <property name="text">
-      <string>500(kcal)</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="gram">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>250</y>
-       <width>110</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border:1px solid rgb(255, 255, 255);
-font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
-     </property>
-     <property name="text">
-      <string>100(g)</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="base">
-     <property name="geometry">
-      <rect>
-       <x>233</x>
-       <y>100</y>
-       <width>125</width>
-       <height>205</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 2px solid rgb(255, 170, 0);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <zorder>base</zorder>
-    <zorder>pushButton1_1</zorder>
-    <zorder>pushButton1_2</zorder>
-    <zorder>pushButton1_3</zorder>
-    <zorder>image</zorder>
-    <zorder>kname</zorder>
-    <zorder>gname</zorder>
-    <zorder>kcal</zorder>
-    <zorder>gram</zorder>
-   </widget>
-   <widget class="QWidget" name="lunch">
-    <property name="styleSheet">
-     <string notr="true">#lunch{
-border: 2px solid rgb(255, 170, 0);
-}</string>
-    </property>
-    <widget class="QPushButton" name="pushButton2_2">
-     <property name="geometry">
-      <rect>
-       <x>135</x>
-       <y>20</y>
-       <width>100</width>
-       <height>45</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>나눔스퀘어OTF ExtraBold</family>
-       <pointsize>12</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 170, 0);</string>
-     </property>
-     <property name="text">
-      <string>점심</string>
      </property>
      <property name="checkable">
       <bool>false</bool>
@@ -398,38 +359,135 @@ border: 2px solid rgb(255, 170, 0);
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton2_3">
+    <zorder>pushButton1_1</zorder>
+    <zorder>image</zorder>
+    <zorder>pushButton1_2</zorder>
+    <zorder>pushButton1_3</zorder>
+    <zorder>info_1</zorder>
+   </widget>
+   <widget class="QWidget" name="lunch">
+    <property name="styleSheet">
+     <string notr="true">#lunch{
+border: 2px solid rgb(255, 170, 0);
+	background-color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <widget class="QWidget" name="info_2" native="true">
      <property name="geometry">
       <rect>
-       <x>255</x>
-       <y>20</y>
-       <width>100</width>
-       <height>45</height>
+       <x>10</x>
+       <y>340</y>
+       <width>370</width>
+       <height>40</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <family>나눔스퀘어OTF ExtraBold</family>
-       <pointsize>12</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 170, 0);</string>
+      <string notr="true">#info_2{
+border: 2px solid rgb(255, 170, 0);
+}</string>
      </property>
-     <property name="text">
-      <string>저녁</string>
-     </property>
-     <property name="checkable">
-      <bool>false</bool>
-     </property>
+     <widget class="QLabel" name="lu_gram">
+      <property name="geometry">
+       <rect>
+        <x>265</x>
+        <y>5</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lu_kname">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>5</y>
+        <width>60</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>칼로리 :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lu_gname">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>5</y>
+        <width>40</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>무게 :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lu_kcal">
+      <property name="geometry">
+       <rect>
+        <x>95</x>
+        <y>5</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lu_kinfo">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>5</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(kcal)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lu_ginfo">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>5</y>
+        <width>21</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(g)</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QPushButton" name="pushButton2_1">
      <property name="geometry">
       <rect>
-       <x>15</x>
-       <y>20</y>
+       <x>10</x>
+       <y>15</y>
        <width>100</width>
        <height>45</height>
       </rect>
@@ -455,106 +513,78 @@ border: 2px solid rgb(255, 170, 0);
     <widget class="QLabel" name="image_2">
      <property name="geometry">
       <rect>
-       <x>15</x>
-       <y>100</y>
-       <width>205</width>
-       <height>205</height>
+       <x>10</x>
+       <y>70</y>
+       <width>370</width>
+       <height>260</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 81 24pt &quot;나눔스퀘어OTF ExtraBold&quot;;
+      <string notr="true">font: 81 20pt &quot;나눔스퀘어OTF ExtraBold&quot;;
 border: 2px solid rgb(255, 170, 0);</string>
      </property>
      <property name="text">
-      <string>사진</string>
+      <string>인식된 음식이 없습니다</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="base_2">
+    <widget class="QPushButton" name="pushButton2_2">
      <property name="geometry">
       <rect>
-       <x>233</x>
-       <y>100</y>
-       <width>125</width>
-       <height>205</height>
+       <x>145</x>
+       <y>15</y>
+       <width>100</width>
+       <height>45</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어OTF ExtraBold</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">
-border: 2px solid rgb(255, 170, 0);</string>
+      <string notr="true">background-color: rgb(255, 170, 0);</string>
      </property>
      <property name="text">
-      <string/>
+      <string>점심</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="kcal_2">
+    <widget class="QPushButton" name="pushButton2_3">
      <property name="geometry">
       <rect>
-       <x>240</x>
-       <y>150</y>
-       <width>110</width>
-       <height>40</height>
+       <x>280</x>
+       <y>15</y>
+       <width>100</width>
+       <height>45</height>
       </rect>
      </property>
-     <property name="styleSheet">
-      <string notr="true">border:1px solid rgb(255, 255, 255);
-font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
-     </property>
-     <property name="text">
-      <string>150(kacal)</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="gname_2">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>215</y>
-       <width>110</width>
-       <height>35</height>
-      </rect>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어OTF ExtraBold</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;
-border:1px solid rgb(255, 255, 255);</string>
+      <string notr="true">background-color: rgb(255, 170, 0);</string>
      </property>
      <property name="text">
-      <string>무게</string>
+      <string>저녁</string>
      </property>
-    </widget>
-    <widget class="QLabel" name="kname_2">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>115</y>
-       <width>110</width>
-       <height>35</height>
-      </rect>
+     <property name="checkable">
+      <bool>false</bool>
      </property>
-     <property name="styleSheet">
-      <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;
-border:1px solid rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string>칼로리</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="gram_2">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>250</y>
-       <width>110</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border:1px solid rgb(255, 255, 255);
-font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
-     </property>
-     <property name="text">
-      <string>30(g)</string>
+     <property name="checked">
+      <bool>false</bool>
      </property>
     </widget>
    </widget>
@@ -562,13 +592,14 @@ font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
     <property name="styleSheet">
      <string notr="true">#dinner{
 border: 2px solid rgb(255, 170, 0);
+	background-color: rgb(255, 255, 255);
 }</string>
     </property>
     <widget class="QPushButton" name="pushButton3_2">
      <property name="geometry">
       <rect>
-       <x>135</x>
-       <y>20</y>
+       <x>145</x>
+       <y>15</y>
        <width>100</width>
        <height>45</height>
       </rect>
@@ -594,8 +625,8 @@ border: 2px solid rgb(255, 170, 0);
     <widget class="QPushButton" name="pushButton3_3">
      <property name="geometry">
       <rect>
-       <x>255</x>
-       <y>20</y>
+       <x>280</x>
+       <y>15</y>
        <width>100</width>
        <height>45</height>
       </rect>
@@ -624,8 +655,8 @@ border: 2px solid rgb(255, 170, 0);
     <widget class="QPushButton" name="pushButton3_1">
      <property name="geometry">
       <rect>
-       <x>15</x>
-       <y>20</y>
+       <x>10</x>
+       <y>15</y>
        <width>100</width>
        <height>45</height>
       </rect>
@@ -651,116 +682,135 @@ border: 2px solid rgb(255, 170, 0);
     <widget class="QLabel" name="image_3">
      <property name="geometry">
       <rect>
-       <x>15</x>
-       <y>100</y>
-       <width>205</width>
-       <height>205</height>
+       <x>10</x>
+       <y>70</y>
+       <width>370</width>
+       <height>260</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 81 24pt &quot;나눔스퀘어OTF ExtraBold&quot;;
+      <string notr="true">font: 81 20pt &quot;나눔스퀘어OTF ExtraBold&quot;;
 border: 2px solid rgb(255, 170, 0);</string>
      </property>
      <property name="text">
-      <string>사진</string>
+      <string>인식된 음식이 없습니다</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="kcal_3">
+    <widget class="QWidget" name="info_3" native="true">
      <property name="geometry">
       <rect>
-       <x>240</x>
-       <y>150</y>
-       <width>110</width>
+       <x>10</x>
+       <y>340</y>
+       <width>370</width>
        <height>40</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border:1px solid rgb(255, 255, 255);
-font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      <string notr="true">#info_3
+{
+border: 2px solid rgb(255, 170, 0);
+}</string>
      </property>
-     <property name="text">
-      <string>1000(kacal)</string>
-     </property>
+     <widget class="QLabel" name="di_gram">
+      <property name="geometry">
+       <rect>
+        <x>265</x>
+        <y>5</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="di_kname">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>5</y>
+        <width>60</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>칼로리 :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="di_gname">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>5</y>
+        <width>40</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>무게 :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="di_kcal">
+      <property name="geometry">
+       <rect>
+        <x>95</x>
+        <y>5</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="di_kinfo">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>5</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(kcal)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="di_ginfo">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>5</y>
+        <width>21</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(g)</string>
+      </property>
+     </widget>
     </widget>
-    <widget class="QLabel" name="gram_3">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>250</y>
-       <width>110</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border:1px solid rgb(255, 255, 255);
-font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
-     </property>
-     <property name="text">
-      <string>3000(g)</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="kname_3">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>115</y>
-       <width>110</width>
-       <height>35</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;
-border:1px solid rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string>칼로리</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="base_3">
-     <property name="geometry">
-      <rect>
-       <x>233</x>
-       <y>100</y>
-       <width>125</width>
-       <height>205</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 2px solid rgb(255, 170, 0);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="gname_3">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>215</y>
-       <width>110</width>
-       <height>35</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 81 10pt &quot;나눔스퀘어OTF ExtraBold&quot;;
-border:1px solid rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string>무게</string>
-     </property>
-    </widget>
-    <zorder>base_3</zorder>
-    <zorder>pushButton3_2</zorder>
-    <zorder>pushButton3_3</zorder>
-    <zorder>pushButton3_1</zorder>
-    <zorder>image_3</zorder>
-    <zorder>kcal_3</zorder>
-    <zorder>gram_3</zorder>
-    <zorder>kname_3</zorder>
-    <zorder>gname_3</zorder>
    </widget>
   </widget>
  </widget>

@@ -33,9 +33,9 @@ background-color: rgb(232, 232, 232);
   <widget class="QLabel" name="title">
    <property name="geometry">
     <rect>
-     <x>89</x>
-     <y>20</y>
-     <width>691</width>
+     <x>80</x>
+     <y>10</y>
+     <width>710</width>
      <height>60</height>
     </rect>
    </property>
@@ -45,7 +45,7 @@ border: 2px solid rgb(255, 170, 0);
 background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>음식을 올려 놓으세요</string>
+    <string>위치를 확인해 보세요</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -54,8 +54,8 @@ background-color: rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="back">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
+     <x>10</x>
+     <y>10</y>
      <width>60</width>
      <height>60</height>
     </rect>
@@ -68,25 +68,160 @@ font: 81 16pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
     <string>뒤</string>
    </property>
   </widget>
-  <widget class="QCameraViewfinder" name="viewfinder" native="true">
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>80</y>
+     <width>780</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="preview">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetDefaultConstraint</enum>
+    </property>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="start">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>100</y>
-     <width>760</width>
-     <height>300</height>
+     <y>90</y>
+     <width>50</width>
+     <height>180</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>나눔스퀘어OTF ExtraBold</family>
+     <pointsize>12</pointsize>
+     <weight>10</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 170, 0);
+font: 81 12pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+   </property>
+   <property name="text">
+    <string>시
+
+작</string>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
   </widget>
+  <widget class="QPushButton" name="stop">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>280</y>
+     <width>50</width>
+     <height>180</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>나눔스퀘어OTF ExtraBold</family>
+     <pointsize>12</pointsize>
+     <weight>10</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 170, 0);
+font: 81 12pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+   </property>
+   <property name="text">
+    <string>정
+
+지</string>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_txt">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>80</y>
+     <width>780</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 81 44pt &quot;나눔스퀘어OTF ExtraBold&quot;;
+border: 2px solid rgb(255, 170, 0);
+background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>시작을 눌러주세요</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="recognize">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>90</y>
+     <width>50</width>
+     <height>370</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>나눔스퀘어OTF ExtraBold</family>
+     <pointsize>14</pointsize>
+     <weight>10</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="whatsThis">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 170, 0);
+font: 81 14pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
+   </property>
+   <property name="text">
+    <string>인
+
+
+
+식</string>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <zorder>lbl_txt</zorder>
+  <zorder>title</zorder>
+  <zorder>back</zorder>
+  <zorder>verticalLayoutWidget</zorder>
+  <zorder>start</zorder>
+  <zorder>stop</zorder>
+  <zorder>recognize</zorder>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QCameraViewfinder</class>
-   <extends>QWidget</extends>
-   <header location="global">PyQt5/QtMultimediaWidgets</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
