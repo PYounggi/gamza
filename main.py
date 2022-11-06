@@ -60,7 +60,7 @@ class MainScreen(QDialog):
         widget.setCurrentIndex(widget.currentIndex()+1)
 
     def goGraph(self):
-        widget.setCurrentIndex(grap)
+        widget.addWidget(grap)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
     def Shutdown(self):
