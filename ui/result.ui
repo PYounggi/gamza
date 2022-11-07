@@ -153,7 +153,7 @@ border: 2px solid rgb(255, 170, 0);
      <string>0</string>
     </property>
    </widget>
-   <widget class="QLabel" name="name_info">
+   <widget class="QLabel" name="name">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -166,10 +166,10 @@ border: 2px solid rgb(255, 170, 0);
      <string notr="true">font: 81 14pt &quot;나눔스퀘어OTF ExtraBold&quot;;</string>
     </property>
     <property name="text">
-     <string>감자</string>
+     <string>없음</string>
     </property>
    </widget>
-   <widget class="QLabel" name="kcal">
+   <widget class="QLabel" name="kcal_t">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -186,7 +186,7 @@ color: rgb(238, 159, 0);</string>
      <string>칼로리 :</string>
     </property>
    </widget>
-   <widget class="QLabel" name="kcal_info">
+   <widget class="QLabel" name="kcal">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -202,7 +202,7 @@ color: rgb(238, 159, 0);</string>
      <string>0</string>
     </property>
    </widget>
-   <widget class="QLabel" name="kcal_info_2">
+   <widget class="QLabel" name="kcal_info">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -218,7 +218,7 @@ color: rgb(238, 159, 0);</string>
      <string>(kcal)</string>
     </property>
    </widget>
-   <widget class="QLabel" name="gname">
+   <widget class="QLabel" name="gram_t">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -235,7 +235,7 @@ color: rgb(238, 159, 0);</string>
      <string>무게 :</string>
     </property>
    </widget>
-   <widget class="QLabel" name="name">
+   <widget class="QLabel" name="name_t">
     <property name="geometry">
      <rect>
       <x>20</x>
