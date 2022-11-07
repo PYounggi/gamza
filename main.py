@@ -6,16 +6,9 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5 import QtWidgets
 
-import base64
-import io
-from PIL import Image
-
 import requests
 import json
 import numpy as np
-from datetime import datetime, date
-import pandas
-from dateutil.relativedelta import relativedelta
 
 import preview
 import Result
