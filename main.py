@@ -21,7 +21,7 @@ import pandas
 from dateutil.relativedelta import relativedelta
 
 import preview
-
+import Result
 
 class SplashScreen(QDialog):
     def __init__(self):
@@ -92,30 +92,15 @@ class CameraScreen(QDialog):
         if preview.running == True:
             preview.running = False
             self.display.close()
-        widget.addWidget(rslt)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
+        self.w = Result.ResultScreen()
+        self.w.show()
+        widget.removeWidget(cam)
 
     def goBack(self):
         if preview.running == True:
             preview.running = False
             self.display.close()
         widget.removeWidget(cam)
-
-
-class ResultScreen(QDialog):
-    def __init__(self):
-        super(ResultScreen, self).__init__()
-        loadUi("ui/result.ui", self)
-
-        self.end.clicked.connect(self.goBack)
-        self.restart.clicked.connect(self.reCam)
-
-    def goBack(self):
-        widget.removeWidget(cam)
-        widget.removeWidget(rslt)
-
-    def reCam(self):
-        widget.removeWidget(rslt)
 
 
 class GraphScreen(QDialog):
@@ -180,8 +165,6 @@ class GraphScreen(QDialog):
                 progress = progress - 0.1
                 value = value - 10
 
-        print(round(progress, 3))
-
         progress = round(progress, 3)
 
         suc_1 = str(1-progress)
@@ -212,7 +195,6 @@ class GraphScreen(QDialog):
     def goBack(self):
         widget.removeWidget(grap)
 
-
 class RecordScreen(QDialog):
     def __init__(self):
         super(RecordScreen, self).__init__()
@@ -241,9 +223,7 @@ class RecordScreen(QDialog):
         self.pushButton3_3.clicked.connect(self.page_btn_3)
 
         #기록_이미지
-        # self.img = QPixmap()
-        # self.img.load(image_data)
-        # self.img = self.img.scaledToWidth(360)
+        # self.img = self.img.scaledToWidth(370)
         # self.img = self.img.scaledToHeight(260)
         # self.image.setPixmap(self.img)
 
@@ -290,7 +270,6 @@ if __name__ == "__main__" :
 
     main = MainScreen()
     cam = CameraScreen()
-    rslt = ResultScreen()
     grap = GraphScreen()
     record = RecordScreen()
 
@@ -298,6 +277,7 @@ if __name__ == "__main__" :
     widget.addWidget(splash)
     widget.setFixedHeight(480)
     widget.setFixedWidth(800)
+    widget.move(0, 0)
     #widget.setWindowFlags(Qt.WindowStaysOnTopHint)
     widget.setWindowFlag(Qt.FramelessWindowHint)
     widget.show()
