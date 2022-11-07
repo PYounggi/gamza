@@ -126,10 +126,10 @@ class GraphScreen(QDialog):
         # 현재 날짜와 시간 저장
         my_date = datetime.today()
         # 6일전 날짜와 시간 저장
-        lw_date = my_date + relativedelta(days=-6)
+        lw_date = my_date + relativedelta(days=-9)
         # 오늘날짜만 저장
         today = date.today().isoformat()
-        # 오늘부터 ~ 6일 전 날짜 리스트에 저장
+        # 오늘부터 ~ 9일 전 날짜 리스트에 저장
         dates = self.date_range(lw_date.date().isoformat(), today)
 
         #그래프 그리기
@@ -138,11 +138,11 @@ class GraphScreen(QDialog):
         #위젯 추가
         self.graph_verticalLayout.addWidget(self.canvas)
         #x축 범위
-        x = np.arange(7)
+        x = np.arange(10)
         #값(y축)
-        kcal = np.random.randint(low=500, high=3000, size=7) #임시 값
+        kcal = np.random.randint(low=800, high=3000, size=10) #임시 값
 
-        avg_kcal = sum(kcal) / 7
+        avg_kcal = sum(kcal) / 10
         max_kcal = max(kcal)
         min_kcal = min(kcal)
 
@@ -150,24 +150,63 @@ class GraphScreen(QDialog):
         axes = self.fig.add_subplot(111)
         axes.bar(x, kcal)
         axes.set_xticks(x, dates)
-        axes.set_xlabel("x")
-        axes.set_xlabel("y")
-
-        axes.set_title("7days kcal")
+        axes.set_title("10days kcal")
         self.canvas.draw()
 
         self.Avg_num.setText(str(int(avg_kcal)) + " (kcal)")
         self.Max_num.setText(str(int(max_kcal)) + " (kcal)")
         self.Min_num.setText(str(int(min_kcal)) + " (kcal)")
 
+        #성공,실패
+        styleSheet_suc = """
+                        QFrame{
+                        	border-radius: 70px;
+                        	background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{STOP_1} rgb(255, 128, 0), stop:{STOP_2} rgba(204, 204, 204, 100));
+                        }
+                        """
+
+        styleSheet_fail = """
+                QFrame{
+                	border-radius: 70px;
+                	background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{STOP_1} rgba(204, 204, 204, 100), stop:{STOP_2} rgb(85, 170, 255));
+                }
+                """
+
+        progress = 1
+        value = 100
+
+        for i in kcal:
+            if i <= 2000:
+                progress = progress - 0.1
+                value = value - 10
+
+        print(round(progress, 3))
+
+        progress = round(progress, 3)
+
+        suc_1 = str(1-progress)
+        suc_2 = str(1-progress-0.003)
+        fail_1 = str(progress)
+        fail_2 = str(progress-0.003)
+
+        newStylesheet_suc = styleSheet_suc.replace("{STOP_1}", suc_1).replace("{STOP_2}", suc_2)
+        newStylesheet_fail = styleSheet_fail.replace("{STOP_1}", fail_1).replace("{STOP_2}", fail_2)
+        self.circularProgressSuc.setStyleSheet(newStylesheet_suc)
+        self.circularProgressFail.setStyleSheet(newStylesheet_fail)
+
+        # 숫자
+        htmlText = """<p align="center"><span style=" font-size:24pt;">{VALUE}</span><span style=" font-size:20pt; vertical-align:super;">%</span></p>"""
+        self.labelPercentageFail.setText(htmlText.replace("{VALUE}", str(int(value))))
+        self.labelPercentageSuc.setText(htmlText.replace("{VALUE}", str(int(100-value))))
+
         #뒤로가기
         self.back.clicked.connect(self.goBack)
 
-    #최근 일주일 날짜 저장(6일 전부터 오늘까지)
+    #최근 일주일 날짜 저장(9일 전부터 오늘까지)
     def date_range(self, start, end):
         start = datetime.strptime(start, "%Y-%m-%d")
         end = datetime.strptime(end, "%Y-%m-%d")
-        dates = [date.strftime('%m-%d') for date in pandas.date_range(start, periods=(end-start).days+1)]
+        dates = [date.strftime('%d') for date in pandas.date_range(start, periods=(end-start).days+1)]
         return dates
 
     def goBack(self):
@@ -202,11 +241,11 @@ class RecordScreen(QDialog):
         self.pushButton3_3.clicked.connect(self.page_btn_3)
 
         #기록_이미지
-        self.img = QPixmap()
-        self.img.load('image/test.jpg')
-        self.img = self.img.scaledToWidth(205)
-        self.img = self.img.scaledToHeight(205)
-        self.image.setPixmap(self.img)
+        # self.img = QPixmap()
+        # self.img.load(image_data)
+        # self.img = self.img.scaledToWidth(360)
+        # self.img = self.img.scaledToHeight(260)
+        # self.image.setPixmap(self.img)
 
         #뒤로가기
         self.back.clicked.connect(self.goBack)
@@ -214,12 +253,15 @@ class RecordScreen(QDialog):
     #아침
     def page_btn_1(self):
         self.stack.setCurrentIndex(0)
+
     #점심
     def page_btn_2(self):
         self.stack.setCurrentIndex(1)
+
     #저녁
     def page_btn_3(self):
         self.stack.setCurrentIndex(2)
+
     #뒤로
     def goBack(self):
         widget.removeWidget(record)
