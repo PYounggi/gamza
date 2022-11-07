@@ -102,6 +102,9 @@ background-color: rgb(255, 255, 255);</string>
    <property name="text">
     <string/>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QWidget" name="info" native="true">
    <property name="geometry">

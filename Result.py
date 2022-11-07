@@ -8,18 +8,9 @@ class ResultScreen(QDialog):
     def __init__(self):
         super(ResultScreen, self).__init__()
         loadUi("ui/result.ui", self)
-        self.img.setPixmap(QPixmap('recognize_img/test.jpg').scaledToWidth(600).scaledToHeight(390))
+        self.img.setPixmap(QPixmap('recognize_img/test02.jpg').scaledToWidth(600).scaledToHeight(390))
         self.end.clicked.connect(self.goBack)
 
     def goBack(self):
-        re.deleteLater()
+        self.deleteLater()
 
-if __name__ == "__main__" :
-    app = QApplication(sys.argv)
-    re = ResultScreen()
-    re.setFixedHeight(480)
-    re.setFixedWidth(800)
-    re.move(0, 0)
-    re.setWindowFlag(Qt.FramelessWindowHint)
-    re.show()
-    app.exec_()
