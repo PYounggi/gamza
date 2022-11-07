@@ -10,10 +10,9 @@ import requests
 import json
 import numpy as np
 
-import preview
-import Result
 import Record
 import Graph
+import Cam
 
 class SplashScreen(QDialog):
     def __init__(self):
@@ -44,8 +43,13 @@ class MainScreen(QDialog):
         self.shutdown.clicked.connect(self.Shutdown)
 
     def goCam(self):
-        widget.addWidget(cam)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
+        self.cam = Cam.CameraScreen()
+        self.cam.setFixedHeight(480)
+        self.cam.setFixedWidth(800)
+        self.cam.move(0, 0)
+        # widget.setWindowFlags(Qt.WindowStaysOnTopHint)
+        self.cam.setWindowFlag(Qt.FramelessWindowHint)
+        self.cam.show()
 
     def goRecord(self):
         self.rcd = Record.RecordScreen()
@@ -68,46 +72,6 @@ class MainScreen(QDialog):
     def Shutdown(self):
         widget.deleteLater()
 
-class CameraScreen(QDialog):
-    def __init__(self):
-        super(CameraScreen, self).__init__()
-        loadUi("ui/camera.ui", self)
-
-        self.start.clicked.connect(self.camstart)
-        self.stop.clicked.connect(self.camstop)
-        self.back.clicked.connect(self.goBack)
-        self.recognize.clicked.connect(self.goResult)
-
-    def camstart(self):
-        if preview.running == False:
-            preview.running = True
-            self.display = preview.PlayStreaming()
-            self.preview.addWidget(self.display)
-
-    def camstop(self):
-        if preview.running == True:
-            preview.running = False
-            self.display.close()
-
-    def goResult(self):
-        if preview.running == True:
-            preview.running = False
-            self.display.close()
-        self.w = Result.ResultScreen()
-        self.w.setFixedHeight(480)
-        self.w.setFixedWidth(800)
-        self.w.move(0, 0)
-        # widget.setWindowFlags(Qt.WindowStaysOnTopHint)
-        self.w.setWindowFlag(Qt.FramelessWindowHint)
-        self.w.show()
-        widget.removeWidget(cam)
-
-    def goBack(self):
-        if preview.running == True:
-            preview.running = False
-            self.display.close()
-        widget.removeWidget(cam)
-
 def clickable(widget):
     class Filter(QObject):
         clicked = pyqtSignal()
@@ -126,12 +90,8 @@ def clickable(widget):
 
 if __name__ == "__main__" :
     app = QApplication(sys.argv)
-
     splash = SplashScreen()
-
     main = MainScreen()
-    cam = CameraScreen()
-
     widget = QtWidgets.QStackedWidget()
     widget.addWidget(splash)
     widget.setFixedHeight(480)

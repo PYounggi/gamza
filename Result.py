@@ -18,15 +18,28 @@ class ResultScreen(QDialog):
         with open('json_datas/' + day, 'r', encoding="utf-8") as read_file:
             data = json.load(read_file)
 
-        num = 0
+        self.num = 0
         if int(datetime.now().strftime("%H")) >= 17 or int(datetime.now().strftime("%H")) <= 4:
-            for i in data['breakfast']:
-                num = num + 1
+            for i in data['dinner']:
+                self.num = self.num + 1
+            self.name.setText(str(data['dinner'][self.num-1]['menu']))
+            self.kcal.setText(str(data['dinner'][self.num-1]['kcal']))
+            self.gram.setText(str(data['dinner'][self.num-1]['weight']))
 
-            self.name.setText(str(data['breakfast'][num-1]['menu']))
-            self.kcal.setText(str(data['breakfast'][num-1]['kcal']))
-            self.gram.setText(str(data['breakfast'][num-1]['weight']))
+        elif int(datetime.now().strftime("%H")) >= 5 or int(datetime.now().strftime("%H")) <= 10:
+            for j in data['breakfast']:
+                self.num = self.num + 1
+            self.name.setText(str(data['breakfast'][self.num-1]['menu']))
+            self.kcal.setText(str(data['breakfast'][self.num-1]['kcal']))
+            self.gram.setText(str(data['breakfast'][self.num-1]['weight']))
+
+        elif int(datetime.now().strftime("%H")) >= 11 or int(datetime.now().strftime("%H")) <= 16:
+            for k in data['lunch']:
+                self.num = self.num + 1
+            self.name.setText(str(data['lunch'][self.num-1]['menu']))
+            self.kcal.setText(str(data['lunch'][self.num-1]['kcal']))
+            self.gram.setText(str(data['lunch'][self.num-1]['weight']))
 
     def goBack(self):
-        self.deleteLater()
+        self.close()
 
