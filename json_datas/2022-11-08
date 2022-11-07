@@ -1,0 +1,23 @@
+{
+	"breakfast": [
+		{
+			"menu": "사과",
+			"weight": 100,
+			"kcal": 100
+		}
+	],
+	"lunch": [
+		{
+			"menu": "바나나",
+			"weight": 100,
+			"kcal": 90.0
+		}
+	],
+	"dinner": [
+		{
+			"menu": "오렌지",
+			"weight": 100,
+			"kcal": 100
+		}
+	]
+}
