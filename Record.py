@@ -18,23 +18,26 @@ class RecordScreen(QDialog):
             with open('json_datas/' + day, 'r', encoding='utf-8') as read_file:
                 json_data = json.load(read_file)
                 #아침
-                self.bl_kcal.setText(str(json_data['breakfast'][0]['kcal']) + '(kcal)')
-                self.bl_gram.setText(str(json_data['breakfast'][0]['weight']) + '(g)')
-                if os.path.isfile('recognize_img/' + day + '0' + '0' + '.jpg'):
-                    self.image.setPixmap(QPixmap('recognize_img/' + day + '0' + '0' + '.jpg').scaledToWidth(370).
-                                         scaledToHeight(260))
+                if json_data['breakfast'] != []:
+                    self.bl_kcal.setText(str(json_data['breakfast'][0]['kcal']) + '(kcal)')
+                    self.bl_gram.setText(str(json_data['breakfast'][0]['weight']) + '(g)')
+                    if os.path.isfile('recognize_img/' + day + '0' + '0' + '.jpg'):
+                        self.image.setPixmap(QPixmap('recognize_img/' + day + '0' + '0' + '.jpg').scaledToWidth(370).
+                                             scaledToHeight(260))
                 #점심
-                self.lu_kcal.setText(str(json_data['lunch'][0]['kcal']) + '(kcal)')
-                self.lu_gram.setText(str(json_data['lunch'][0]['weight']) + '(g)')
-                if os.path.isfile('recognize_img/' + day + '1' + '0' + '.jpg'):
-                    self.image_2.setPixmap(QPixmap('recognize_img/' + day + '1' + '0' + '.jpg').scaledToWidth(370).
-                                           scaledToHeight(260))
+                if json_data['lunch'] != []:
+                    self.lu_kcal.setText(str(json_data['lunch'][0]['kcal']) + '(kcal)')
+                    self.lu_gram.setText(str(json_data['lunch'][0]['weight']) + '(g)')
+                    if os.path.isfile('recognize_img/' + day + '1' + '0' + '.jpg'):
+                        self.image_2.setPixmap(QPixmap('recognize_img/' + day + '1' + '0' + '.jpg').scaledToWidth(370).
+                                               scaledToHeight(260))
                 #저녁
-                self.di_kcal.setText(str(json_data['dinner'][0]['kcal']) + '(kcal)')
-                self.di_gram.setText(str(json_data['dinner'][0]['weight']) + '(g)')
-                if os.path.isfile('recognize_img/' + day + '2' + '0' + '.jpg'):
-                    self.image_3.setPixmap(QPixmap('recognize_img/' + day + '2' + '0' + '.jpg').scaledToWidth(370).
-                                           scaledToHeight(260))
+                if json_data['dinner'] != []:
+                    self.di_kcal.setText(str(json_data['dinner'][0]['kcal']) + '(kcal)')
+                    self.di_gram.setText(str(json_data['dinner'][0]['weight']) + '(g)')
+                    if os.path.isfile('recognize_img/' + day + '2' + '0' + '.jpg'):
+                        self.image_3.setPixmap(QPixmap('recognize_img/' + day + '2' + '0' + '.jpg').scaledToWidth(370).
+                                               scaledToHeight(260))
 
         #캘린더
         #자동으로 오늘 날짜 선택

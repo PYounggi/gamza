@@ -26,10 +26,10 @@ class Thread(QtCore.QThread):
                 self.changePixmap.emit(p)
             else:
                 #아침=0
-                if int(datetime.now().strftime("%H")) >= 5 or int(datetime.now().strftime("%H")) <= 10:
+                if int(datetime.now().strftime("%H")) >= 5 and int(datetime.now().strftime("%H")) <= 10:
                     inum = day + '0'
                 #점심=1
-                elif int(datetime.now().strftime("%H")) >= 11 or int(datetime.now().strftime("%H")) <= 16:
+                elif int(datetime.now().strftime("%H")) >= 11 and int(datetime.now().strftime("%H")) <= 16:
                     inum = day + '1'
                 #저녁=2
                 elif int(datetime.now().strftime("%H")) >= 17 or int(datetime.now().strftime("%H")) <= 4:
