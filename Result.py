@@ -1,7 +1,7 @@
-import sys
+# -*- coding: utf-8 -*-
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
+import os
 from PyQt5.QtGui import *
 import json
 from datetime import datetime
@@ -10,11 +10,28 @@ class ResultScreen(QDialog):
     def __init__(self):
         super(ResultScreen, self).__init__()
         loadUi("ui/result.ui", self)
+        day = datetime.now().strftime("%Y-%m-%d")
 
-        self.img.setPixmap(QPixmap('recognize_img/test02.jpg').scaledToWidth(600).scaledToHeight(390))
+        if int(datetime.now().strftime("%H")) >= 5 or int(datetime.now().strftime("%H")) <= 10:
+            inum = day + "0"
+        # 점심=1
+        elif int(datetime.now().strftime("%H")) >= 11 or int(datetime.now().strftime("%H")) <= 16:
+            inum = day + "1"
+        # 저녁=2
+        elif int(datetime.now().strftime("%H")) >= 17 or int(datetime.now().strftime("%H")) <= 4:
+            inum = day + "2"
+
+        num = 0
+        #2022-11-08일에 아침 시간때 첫번째 사진 찍을 시 2022-11-0800
+        while os.path.isfile('default_img/' + inum + str(num) + '.jpg'):
+            if os.path.isfile("recognize_img/" + inum + str(num) + ".jpg"):
+                self.img.setPixmap(QPixmap('recognize_img/' + inum + str(num) + '.jpg').scaledToWidth(600)
+                                   .scaledToHeight(390))
+            else:
+                num = num + 1
+
         self.end.clicked.connect(self.goBack)
 
-        day = datetime.now().strftime("%Y-%m-%d")
         with open('json_datas/' + day, 'r', encoding="utf-8") as read_file:
             data = json.load(read_file)
 

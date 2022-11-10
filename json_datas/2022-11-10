@@ -2,22 +2,22 @@
 	"breakfast": [
 		{
 			"menu": "사과",
-			"weight": 100,
-			"kcal": 100
+			"weight": 20,
+			"kcal": 45
 		}
 	],
 	"lunch": [
 		{
 			"menu": "바나나",
-			"weight": 100,
-			"kcal": 90.0
+			"weight": 30,
+			"kcal": 14
 		}
 	],
 	"dinner": [
 		{
 			"menu": "오렌지",
-			"weight": 100,
-			"kcal": 100
+			"weight": 15,
+			"kcal": 23
 		}
 	]
 }
