@@ -12,10 +12,10 @@ class ResultScreen(QDialog):
         loadUi("ui/result.ui", self)
         day = datetime.now().strftime("%Y-%m-%d")
 
-        if int(datetime.now().strftime("%H")) >= 5 or int(datetime.now().strftime("%H")) <= 10:
+        if int(datetime.now().strftime("%H")) >= 5 and int(datetime.now().strftime("%H")) <= 10:
             inum = day + "0"
         # 점심=1
-        elif int(datetime.now().strftime("%H")) >= 11 or int(datetime.now().strftime("%H")) <= 16:
+        elif int(datetime.now().strftime("%H")) >= 11 and int(datetime.now().strftime("%H")) <= 16:
             inum = day + "1"
         # 저녁=2
         elif int(datetime.now().strftime("%H")) >= 17 or int(datetime.now().strftime("%H")) <= 4:
@@ -28,6 +28,8 @@ class ResultScreen(QDialog):
                 self.img.setPixmap(QPixmap('recognize_img/' + inum + str(num) + '.jpg').scaledToWidth(600)
                                    .scaledToHeight(390))
             else:
+                self.img.setPixmap(QPixmap('default_img/' + inum + str(num) + '.jpg').scaledToWidth(600)
+                                   .scaledToHeight(390))
                 num = num + 1
 
         self.end.clicked.connect(self.goBack)
@@ -36,26 +38,31 @@ class ResultScreen(QDialog):
             data = json.load(read_file)
 
         self.num = 0
-        if int(datetime.now().strftime("%H")) >= 17 or int(datetime.now().strftime("%H")) <= 4:
-            for i in data['dinner']:
-                self.num = self.num + 1
-            self.name.setText(str(data['dinner'][self.num-1]['menu']))
-            self.kcal.setText(str(data['dinner'][self.num-1]['kcal']))
-            self.gram.setText(str(data['dinner'][self.num-1]['weight']))
 
-        elif int(datetime.now().strftime("%H")) >= 5 or int(datetime.now().strftime("%H")) <= 10:
+        if int(datetime.now().strftime("%H")) >= 5 and int(datetime.now().strftime("%H")) <= 10:
             for j in data['breakfast']:
                 self.num = self.num + 1
-            self.name.setText(str(data['breakfast'][self.num-1]['menu']))
-            self.kcal.setText(str(data['breakfast'][self.num-1]['kcal']))
-            self.gram.setText(str(data['breakfast'][self.num-1]['weight']))
+            if data['breakfast'] != []:
+                self.name.setText(str(data['breakfast'][self.num-1]['menu']))
+                self.kcal.setText(str(data['breakfast'][self.num-1]['kcal']))
+                self.gram.setText(str(data['breakfast'][self.num-1]['weight']))
 
-        elif int(datetime.now().strftime("%H")) >= 11 or int(datetime.now().strftime("%H")) <= 16:
+        elif int(datetime.now().strftime("%H")) >= 11 and int(datetime.now().strftime("%H")) <= 16:
             for k in data['lunch']:
                 self.num = self.num + 1
-            self.name.setText(str(data['lunch'][self.num-1]['menu']))
-            self.kcal.setText(str(data['lunch'][self.num-1]['kcal']))
-            self.gram.setText(str(data['lunch'][self.num-1]['weight']))
+            if data['lunch'] != []:
+                self.name.setText(str(data['lunch'][self.num-1]['menu']))
+                self.kcal.setText(str(data['lunch'][self.num-1]['kcal']))
+                self.gram.setText(str(data['lunch'][self.num-1]['weight']))
+
+        elif int(datetime.now().strftime("%H")) >= 17 or int(datetime.now().strftime("%H")) <= 4:
+            for i in data['dinner']:
+                self.num = self.num + 1
+            if data['dinner'] != []:
+                self.name.setText(str(data['dinner'][self.num - 1]['menu']))
+                self.kcal.setText(str(data['dinner'][self.num - 1]['kcal']))
+                self.gram.setText(str(data['dinner'][self.num - 1]['weight']))
+
 
     def goBack(self):
         self.close()

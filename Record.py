@@ -85,14 +85,16 @@ class RecordScreen(QDialog):
         if os.path.isfile('json_datas/' + date_str):
             with open('json_datas/' + date_str, 'r', encoding='utf-8') as read_file:
                 json_data = json.load(read_file)
-                self.bl_kcal.setText(str(json_data['breakfast'][0]['kcal']) + '(kcal)')
-                self.bl_gram.setText(str(json_data['breakfast'][0]['weight']) + '(g)')
 
-                self.lu_kcal.setText(str(json_data['lunch'][0]['kcal']) + '(kcal)')
-                self.lu_gram.setText(str(json_data['lunch'][0]['weight']) + '(g)')
-
-                self.di_kcal.setText(str(json_data['dinner'][0]['kcal']) + '(kcal)')
-                self.di_gram.setText(str(json_data['dinner'][0]['weight']) + '(g)')
+                if json_data['breakfast'] != []:
+                    self.bl_kcal.setText(str(json_data['breakfast'][0]['kcal']) + '(kcal)')
+                    self.bl_gram.setText(str(json_data['breakfast'][0]['weight']) + '(g)')
+                if json_data['lunch'] != []:
+                    self.lu_kcal.setText(str(json_data['lunch'][0]['kcal']) + '(kcal)')
+                    self.lu_gram.setText(str(json_data['lunch'][0]['weight']) + '(g)')
+                if json_data['dinner'] != []:
+                    self.di_kcal.setText(str(json_data['dinner'][0]['kcal']) + '(kcal)')
+                    self.di_gram.setText(str(json_data['dinner'][0]['weight']) + '(g)')
         else:
             self.bl_kcal.setText("없음")
             self.bl_gram.setText("없음")
