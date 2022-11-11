@@ -5,6 +5,7 @@ import os
 from PyQt5.QtGui import *
 import json
 from datetime import datetime
+from time import sleep
 
 class ResultScreen(QDialog):
     def __init__(self):
@@ -24,13 +25,15 @@ class ResultScreen(QDialog):
         num = 0
         #2022-11-08일에 아침 시간때 첫번째 사진 찍을 시 2022-11-0800
         while os.path.isfile('default_img/' + inum + str(num) + '.jpg'):
-            if os.path.isfile("recognize_img/" + inum + str(num) + ".jpg"):
-                self.img.setPixmap(QPixmap('recognize_img/' + inum + str(num) + '.jpg').scaledToWidth(600)
-                                   .scaledToHeight(390))
-            else:
-                self.img.setPixmap(QPixmap('default_img/' + inum + str(num) + '.jpg').scaledToWidth(600)
-                                   .scaledToHeight(390))
                 num = num + 1
+        print(num)
+        sleep(0.1)
+        if os.path.isfile("recognize_img/" + inum + str(num) + ".jpg"):
+            self.img.setPixmap(QPixmap('recognize_img/' + inum + str(num) + '.jpg').scaledToWidth(600)
+                               .scaledToHeight(390))
+        else:
+            self.img.setPixmap(QPixmap('default_img/' + inum + str(num) + '.jpg').scaledToWidth(600)
+                               .scaledToHeight(390))
 
         self.end.clicked.connect(self.goBack)
 
